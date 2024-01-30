@@ -108,22 +108,22 @@ namespace Kino
             }
         }
 
-        void OnRenderImage(RenderTexture source, RenderTexture destination)
-        {
-            SetUpResources();
+        //void OnRenderImage(RenderTexture source, RenderTexture destination)
+        //{
+        //    SetUpResources();
 
-            // Update trash frames on a constant interval.
-            var fcount = Time.frameCount;
-            if (fcount % 13 == 0) Graphics.Blit(source, _trashFrame1);
-            if (fcount % 73 == 0) Graphics.Blit(source, _trashFrame2);
+        //    // Update trash frames on a constant interval.
+        //    var fcount = Time.frameCount;
+        //    if (fcount % 13 == 0) Graphics.Blit(source, _trashFrame1);
+        //    if (fcount % 73 == 0) Graphics.Blit(source, _trashFrame2);
 
-            _material.SetFloat("_Intensity", _intensity);
-            _material.SetTexture("_NoiseTex", _noiseTexture);
-            var trashFrame = Random.value > 0.5f ? _trashFrame1 : _trashFrame2;
-            _material.SetTexture("_TrashTex", trashFrame);
+        //    _material.SetFloat("_Intensity", _intensity);
+        //    _material.SetTexture("_NoiseTex", _noiseTexture);
+        //    var trashFrame = Random.value > 0.5f ? _trashFrame1 : _trashFrame2;
+        //    _material.SetTexture("_TrashTex", trashFrame);
 
-            Graphics.Blit(source, destination, _material);
-        }
+        //    Graphics.Blit(source, destination, _material);
+        //}
 
         #endregion
     }
